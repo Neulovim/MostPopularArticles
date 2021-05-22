@@ -20,6 +20,13 @@ struct Article: Codable {
     }
 }
 
+// MARK: - ArticleCategorys
+enum ArticleCategorys: String {
+    case emailed
+    case shared
+    case viewed
+}
+
 // MARK: - Result
 struct Result: Codable {
     let uri: String
