@@ -17,6 +17,8 @@ class SharedController: UIViewController {
     
     override func loadView() {
         setShareds()
+        
+        super.loadView()
     }
     
     override func viewDidLoad() {

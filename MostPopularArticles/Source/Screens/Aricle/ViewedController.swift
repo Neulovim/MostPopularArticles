@@ -17,6 +17,8 @@ class ViewedController: UIViewController {
     
     override func loadView() {
         setVieweds()
+        
+        super.loadView()
     }
     
     override func viewDidLoad() {

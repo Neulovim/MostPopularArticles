@@ -17,6 +17,8 @@ class EmailedController: UIViewController {
     
     override func loadView() {
         setEmaileds()
+        
+        super.loadView()
     }
     
     override func viewDidLoad() {
