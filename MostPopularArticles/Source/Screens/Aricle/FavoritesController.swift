@@ -1,22 +1,24 @@
 //
-//  EmailedController.swift
+//  FavoritesController.swift
 //  MostPopularArticles
 //
-//  Created by Aleksandr on 22.05.2021.
+//  Created by Aleksandr on 23.05.2021.
 //
 
 import UIKit
+import CoreData
 
-class EmailedController: UIViewController {
+class FavoritesController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
     private let cellIdentifier = "ArticleViewCell"
     private let networkManager = NetworkManager()
-    private var emaileds = [Result]()
+    private let databaseManager = DatabaseManager()
+    private var favorites: [NSManagedObject] = []
     
     override func loadView() {
-        setEmaileds()
+        setFavorites()
         
         super.loadView()
     }
@@ -32,43 +34,40 @@ class EmailedController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setEmaileds()
+        setFavorites()
         tableView.reloadData()
     }
 }
 
 // MARK: - UITableViewController
-extension EmailedController: UITableViewDataSource {
+extension FavoritesController: UITableViewDataSource {
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return emaileds.count
+    return favorites.count
 }
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ArticleViewCell else { return ArticleViewCell() }
     
-    cell.titleLabel.text = emaileds[indexPath.row].title
-    cell.updateDateLabel.text = emaileds[indexPath.row].updated
-    cell.authorLabel.text = emaileds[indexPath.row].byline
-    cell.url = emaileds[indexPath.row].url
+    cell.titleLabel.text = favorites[indexPath.row].value(forKeyPath: "title") as? String
+    cell.updateDateLabel.text = favorites[indexPath.row].value(forKeyPath: "date") as? String
+    cell.authorLabel.text = favorites[indexPath.row].value(forKeyPath: "author") as? String
+    cell.url = favorites[indexPath.row].value(forKeyPath: "url") as? String
+    cell.saveArticleButton.isHidden = true
     return cell
     }
 }
 
 // MARK: - UITableViewDelegate
-extension EmailedController: UITableViewDelegate {
+extension FavoritesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        networkManager.openURL(emaileds[indexPath.row].url)
+        networkManager.openURL(favorites[indexPath.row]
+                                .value(forKeyPath: "url") as? String ?? "")
     }
 }
 
 // MARK: - Private methods
-private extension EmailedController {
-    func setEmaileds() {
-        networkManager.getArticleData(ArticleCategorys.emailed.rawValue,
-                                      atricleCompletionHandler: { article, error in
-                    if let article = article {
-                        self.emaileds = article.results
-                    }
-                })
+private extension FavoritesController {
+    func setFavorites() {
+        favorites = databaseManager.getShortArticles()
     }
 }
