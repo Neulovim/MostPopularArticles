@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class NetworkManager {
     
@@ -14,11 +15,9 @@ class NetworkManager {
     private let baseURL = "https://api.nytimes.com"
 
     func getArticleData(_ category: String, atricleCompletionHandler: @escaping (Article?, Error?) -> Void) {
-        guard let url = URL(string: "\(baseURL)/svc/mostpopular/v2/\(category)/30.json?api-key=\(apiKey)") else {return}
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
-            
+        AF.request("\(baseURL)/svc/mostpopular/v2/\(category)/30.json?api-key=\(apiKey)").responseData { response in
+            guard let data = response.data else { return }
             do {
                 let articleData = try JSONDecoder().decode(Article.self, from: data)
                 atricleCompletionHandler(articleData, nil)
@@ -26,7 +25,6 @@ class NetworkManager {
                 atricleCompletionHandler(nil, parseError)
             }
         }
-        task.resume()
     }
     
     func openURL(_ link: String) {
