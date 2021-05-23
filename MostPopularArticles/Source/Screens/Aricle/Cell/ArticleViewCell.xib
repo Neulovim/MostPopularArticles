@@ -66,6 +66,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="authorLabel" destination="cdo-Pi-N9g" id="OTx-1Y-ebH"/>
+                <outlet property="saveArticleButton" destination="33H-aG-pWq" id="c4l-q9-eAz"/>
                 <outlet property="titleLabel" destination="oSX-u4-4Xm" id="0nx-xb-fzt"/>
                 <outlet property="updateDateLabel" destination="Kb2-AJ-IfC" id="FqI-JC-Zkh"/>
             </connections>

@@ -70,17 +70,32 @@
             </objects>
             <point key="canvasLocation" x="696" y="411"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites Controller-->
         <scene sceneID="ZMd-gW-kX9">
             <objects>
-                <viewController id="cbE-s0-DQv" sceneMemberID="viewController">
+                <viewController id="cbE-s0-DQv" customClass="FavoritesController" customModule="MostPopularArticles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p1A-bq-snL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uxj-e5-YMt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Uvw-jy-B1R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uxj-e5-YMt" firstAttribute="leading" secondItem="Uvw-jy-B1R" secondAttribute="leading" id="Qoc-Xv-2P6"/>
+                            <constraint firstItem="Uvw-jy-B1R" firstAttribute="trailing" secondItem="uxj-e5-YMt" secondAttribute="trailing" id="bAF-gu-NAI"/>
+                            <constraint firstItem="Uvw-jy-B1R" firstAttribute="bottom" secondItem="uxj-e5-YMt" secondAttribute="bottom" id="cc5-Jk-CZc"/>
+                            <constraint firstItem="uxj-e5-YMt" firstAttribute="top" secondItem="Uvw-jy-B1R" secondAttribute="top" id="jD5-Ks-U6a"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="XBq-QW-6IX"/>
+                    <connections>
+                        <outlet property="tableView" destination="uxj-e5-YMt" id="h2J-9N-dNd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2V-QI-Wo9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

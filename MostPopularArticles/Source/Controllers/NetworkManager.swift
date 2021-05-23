@@ -30,7 +30,6 @@ class NetworkManager {
     }
     
     func openURL(_ link: String) {
-        print("AP: \(link)")
         if let url = URL(string: link) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
