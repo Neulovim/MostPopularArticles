@@ -17,12 +17,6 @@ class FavoritesController: UIViewController {
     private let databaseManager = DatabaseManager()
     private var favorites: [NSManagedObject] = []
     
-    override func loadView() {
-        setFavorites()
-        
-        super.loadView()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

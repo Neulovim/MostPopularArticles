@@ -15,12 +15,6 @@ class ViewedController: UIViewController {
     private let networkManager = NetworkManager()
     private var vieweds = [Result]()
     
-    override func loadView() {
-        setVieweds()
-        
-        super.loadView()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

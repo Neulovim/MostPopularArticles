@@ -15,12 +15,6 @@ class SharedController: UIViewController {
     private let networkManager = NetworkManager()
     private var shareds = [Result]()    
     
-    override func loadView() {
-        setShareds()
-        
-        super.loadView()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

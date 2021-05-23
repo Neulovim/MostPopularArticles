@@ -14,13 +14,7 @@ class EmailedController: UIViewController {
     private let cellIdentifier = "ArticleViewCell"
     private let networkManager = NetworkManager()
     private var emaileds = [Result]()
-    
-    override func loadView() {
-        setEmaileds()
-        
-        super.loadView()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
