@@ -50,12 +50,14 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.updateDateLabel.text = emaileds[indexPath.row].updated
     cell.authorLabel.text = emaileds[indexPath.row].byline
     return cell
-}
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension EmailedController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        networkManager.openURL(emaileds[indexPath.row].url)
+    }
 }
 
 // MARK: - Private methods

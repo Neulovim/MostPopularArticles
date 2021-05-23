@@ -50,12 +50,14 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.updateDateLabel.text = vieweds[indexPath.row].updated
     cell.authorLabel.text = vieweds[indexPath.row].byline
     return cell
-}
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension ViewedController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        networkManager.openURL(vieweds[indexPath.row].url) 
+    }
 }
 
 // MARK: - Private methods
