@@ -49,6 +49,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.titleLabel.text = vieweds[indexPath.row].title
     cell.updateDateLabel.text = vieweds[indexPath.row].updated
     cell.authorLabel.text = vieweds[indexPath.row].byline
+    cell.url = vieweds[indexPath.row].url
     return cell
     }
 }
