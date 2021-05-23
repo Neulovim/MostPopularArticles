@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     
@@ -26,5 +27,12 @@ class NetworkManager {
             }
         }
         task.resume()
+    }
+    
+    func openURL(_ link: String) {
+        print("AP: \(link)")
+        if let url = URL(string: link) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
     }
 }

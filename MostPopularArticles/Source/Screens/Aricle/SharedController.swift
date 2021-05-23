@@ -50,12 +50,14 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.updateDateLabel.text = shareds[indexPath.row].updated
     cell.authorLabel.text = shareds[indexPath.row].byline
     return cell
-}
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension SharedController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        networkManager.openURL(shareds[indexPath.row].url)
+    }
 }
 
 // MARK: - Private methods
