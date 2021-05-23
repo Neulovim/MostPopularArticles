@@ -62,8 +62,8 @@ private extension ArticleViewCell {
         let alert = UIAlertController(title: "Wow",
                                       message: "Article already in favorites",
                                       preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok",
-                                         style: .cancel)
+        let cancelAction = UIAlertAction(title: "OK",
+                                         style: .default)
         
         alert.addAction(cancelAction)
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
