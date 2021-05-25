@@ -15,7 +15,7 @@ class ArticleViewCell: UITableViewCell {
     @IBOutlet weak var saveArticleButton: UIButton!
     
     var url: String?
-
+    
     private let databaseManager = DatabaseManager()
     
     @IBAction func didTapSaveArticleButton(_ sender: UIButton) {
