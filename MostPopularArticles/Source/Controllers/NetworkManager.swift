@@ -13,7 +13,7 @@ class NetworkManager {
     
     private let apiKey = "QwInY3tebA0NCdNUEVUO6oYhglGLpFg1"
     private let baseURL = "https://api.nytimes.com"
-
+    
     func getArticleData(_ category: String, atricleCompletionHandler: @escaping (Article?, Error?) -> Void) {
         
         AF.request("\(baseURL)/svc/mostpopular/v2/\(category)/30.json?api-key=\(apiKey)").responseData { response in
@@ -29,7 +29,7 @@ class NetworkManager {
     
     func openURL(_ link: String) {
         if let url = URL(string: link) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 }
