@@ -20,11 +20,12 @@ struct Article: Codable {
     }
 }
 
-// MARK: - ArticleCategorys
-enum ArticleCategorys: String {
+// MARK: - ArticleCategories
+enum ArticleCategories: String {
     case emailed
     case shared
     case viewed
+    case noCategory = ""
 }
 
 // MARK: - Result
