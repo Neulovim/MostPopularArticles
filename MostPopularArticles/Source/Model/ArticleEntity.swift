@@ -8,10 +8,10 @@
 import Foundation
 
 // MARK: - Article
-struct Article: Codable {
+struct ArticleEntity: Codable {
     let status, copyright: String
     let numResults: Int
-    let results: [Result]
+    let results: [Article]
     
     enum CodingKeys: String, CodingKey {
         case status, copyright
@@ -28,8 +28,8 @@ enum ArticleCategories: String {
     case noCategory = ""
 }
 
-// MARK: - Result
-struct Result: Codable {
+// MARK: - Article
+struct Article: Codable {
     let uri: String
     let url: String
     let id, assetID: Int

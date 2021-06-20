@@ -14,7 +14,7 @@ class ArticleController: UIViewController {
     var articleCategories: ArticleCategories = ArticleCategories.noCategory
     private let cellIdentifier = "ArticleViewCell"
     private let networkManager = NetworkManager()
-    private var articles = [Result]()
+    private var articles = [Article]()
     
     
     override func viewDidLoad() {
